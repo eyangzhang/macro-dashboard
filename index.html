@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macro Conditions Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo">M</div>
+      <div>
+        <h1>Macro Conditions</h1>
+        <div class="header-subtitle">Precious Metals Regime Monitor</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="update-dot"></span>
+      <span id="last-updated">Loading...</span>
+      <span class="staleness-indicator staleness-fresh" id="staleness-indicator"></span>
+      <div class="kbd-icon" id="kbd-icon" title="Shortcuts">⌨️</div>
+      <div class="theme-toggle" id="theme-toggle" title="Theme">🌙</div>
+      <div class="fullscreen-btn" id="fullscreen-btn" title="Fullscreen" onclick="toggleFullscreen()">⛶</div>
+      <div class="export-btn" id="export-btn" title="Export" onclick="exportSnapshot()">📸</div>
+      <div class="settings-btn" id="settings-btn" title="Settings">⚙</div>
+    </div>
+  </div>
+
+  <!-- Quick Stats Bar (Batch 3) -->
+  <div class="quick-stats-bar" id="quick-stats-bar">
+    <div class="qs-item"><span class="qs-label">Gold:</span> <span id="qs-gold">—</span></div>
+    <div class="qs-item"><span class="qs-label">Oil:</span> <span id="qs-oil">—</span></div>
+    <div class="qs-item"><span class="qs-label">VIX:</span> <span id="qs-vix">—</span></div>
+    <div class="qs-item"><span class="qs-label">DXY:</span> <span id="qs-dxy">—</span></div>
+  </div>
+
+  <!-- Market Clock -->
+  <div class="market-clock" id="market-clock"></div>
+
+  
+  <!-- Trading Session Indicator (Batch 2) -->
+  <div class="trading-session-bar" id="trading-session-bar">
+    <div class="trading-session-title">🌍 Global Trading Sessions</div>
+    <div class="session-track" id="session-track"></div>
+    <div class="session-labels">
+      <span>00:00 UTC</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+    </div>
+  </div>
+
+  <!-- Alert Banner -->
+  <div class="alert-banner" id="alert-banner"></div>
+
+  <!-- Alert History -->
+  <div class="alert-history-wrap">
+    <span class="alert-history-toggle" id="alert-history-toggle" onclick="toggleAlertHistory()">📜 Alert History ▼</span>
+    <div class="alert-history-panel" id="alert-history-panel"></div>
+  </div>
+
+  <!-- Error Banner -->
+  <div class="error-banner" id="error-banner"></div>
+
+  <!-- Summary Bar -->
+  <div class="summary-bar" id="summary-bar" style="display:none;">
+    <div class="regime-section">
+      <div class="regime-label">Regime Classification</div>
+      <div class="regime-text" id="regime-text">—</div>
+      <div class="score-bar" id="score-bar"></div>
+      <div class="ai-summary" id="ai-summary"></div>
+    </div>
+    <div class="action-badge" id="action-badge">—</div>
+  </div>
+
+  <!-- Cross-Condition Signal Cards (Batch 3) -->
+  <div class="signal-cards-wrap" id="signal-cards-wrap"></div>
+
+  <!-- Gold/Oil Ratio (Batch 3) -->
+  <div class="gold-oil-section" id="gold-oil-section" style="display:none;">
+    <div class="gold-oil-header">
+      <span>⚖️</span>
+      <span class="gold-oil-value" id="gold-oil-value">—</span>
+      <span class="gold-oil-context" id="gold-oil-context"></span>
+    </div>
+    <div class="gold-oil-gauge">
+      <div class="gold-oil-gauge-fill" style="width:100%"></div>
+      <div class="gold-oil-gauge-marker" id="gold-oil-marker" style="left:50%"></div>
+    </div>
+    <div class="gold-oil-gauge-labels"><span>5x (Oil heavy)</span><span>25x</span><span>50x+ (Gold heavy)</span></div>
+  </div>
+
+  <!-- Sentiment Pulse (Batch 3) -->
+  <div class="sentiment-pulse" id="sentiment-pulse" style="display:none;">
+    <div class="sentiment-icon" id="sentiment-icon">😐</div>
+    <div>
+      <div class="sentiment-label">MARKET MOOD</div>
+      <div class="sentiment-mood" id="sentiment-mood">Analyzing...</div>
+    </div>
+  </div>
+
+  <!-- World Map -->
+  <div class="world-map-section" id="world-map-section">
+    <div class="world-map-title">
+      <span class="live-dot"></span>
+      🌍 Global Macro Hotspots
+    </div>
+    <div class="world-map-svg-wrap" id="world-map-wrap"></div>
+    <div class="map-tooltip" id="map-tooltip"></div>
+  </div>
+
+  <!-- Fear & Greed Gauge -->
+  <div class="fear-greed-section" id="fear-greed-section">
+    <div class="fear-greed-title">🎯 Fear & Greed Gauge</div>
+    <div class="fear-greed-subtitle">Composite score from all 5 macro conditions</div>
+    <div class="gauge-wrap">
+      <canvas id="fearGreedCanvas" width="500" height="300"></canvas>
+      <div class="gauge-classification" id="gauge-classification">—</div>
+      <div class="gauge-score-label" id="gauge-score-label">Score: 0</div>
+    </div>
+  </div>
+
+  <!-- Heatmap -->
+  <div class="heatmap-section" id="heatmap-section">
+    <div class="heatmap-title">⚡ Condition Heatmap</div>
+    <div class="heatmap-grid" id="heatmap-grid"></div>
+  </div>
+
+  <!-- Radar Chart -->
+  <div class="radar-section" id="radar-section">
+    <div class="radar-title">🎯 Condition Radar</div>
+    <div class="radar-canvas-wrap">
+      <canvas id="radarCanvas" width="400" height="400"></canvas>
+    </div>
+  </div>
+
+  <!-- Correlation Web -->
+  <div class="correlation-section" id="correlation-section">
+    <div class="correlation-title">🔗 Condition Correlation Web</div>
+    <div class="correlation-svg-wrap" id="correlation-web"></div>
+  </div>
+
+  <!-- Macro Scorecard Line Chart -->
+  <div class="chart-section" id="chart-section">
+    <div class="chart-title">📈 30-Day Macro Score & Gold Price</div>
+    <div class="chart-canvas-wrap">
+      <canvas id="scoreChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Heat Calendar -->
+  <div class="heat-calendar-section" id="heat-calendar-section">
+    <div class="heat-calendar-title">📅 90-Day Regime Calendar</div>
+    <div class="heat-calendar-grid" id="heat-calendar-grid"></div>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <div style="color: var(--text-muted); font-size: 13px;">Fetching macro data...</div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-grid" id="cards-grid" style="display:none;"></div>
+  <div class="swipe-dots" id="swipe-dots"></div>
+
+  <!-- War Room -->
+  <div class="warroom-section" id="warroom-section">
+    <div class="warroom-sim-watermark" id="warroom-watermark">SIMULATED</div>
+    <div class="warroom-header">
+      <div class="warroom-title">WAR ROOM — What If?</div>
+      <button class="warroom-reset-btn" id="warroom-reset" onclick="warRoomReset()">⟲ Reset to Live</button>
+    </div>
+    <div class="warroom-scenarios" id="warroom-scenarios">
+      <button class="warroom-scenario-btn" data-scenario="iran" onclick="applyWarRoomScenario('iran')">🔥 Iran Escalation</button>
+      <button class="warroom-scenario-btn" data-scenario="pivot" onclick="applyWarRoomScenario('pivot')">🏦 Fed Pivot</button>
+      <button class="warroom-scenario-btn" data-scenario="dollar" onclick="applyWarRoomScenario('dollar')">💵 Dollar Crash</button>
+      <button class="warroom-scenario-btn" data-scenario="riskon" onclick="applyWarRoomScenario('riskon')">🚀 Risk-On Rally</button>
+      <span class="warroom-active-scenario" id="warroom-active-scenario"></span>
+    </div>
+    <div class="warroom-sliders" id="warroom-sliders">
+      <div class="warroom-slider-row">
+        <div class="warroom-slider-label warroom-slider-label-gold">🥇 Gold Price</div>
+        <input type="range" class="warroom-range warroom-range-gold" id="wr-gold" min="3000" max="6000" step="10" value="3500">
+        <div class="warroom-slider-value" id="wr-gold-val">$3,500</div>
+        <div id="wr-gold-badge" class="warroom-badge warroom-badge-neutral">—</div>
+      </div>
+      <div class="warroom-slider-row">
+        <div class="warroom-slider-label warroom-slider-label-oil">🛢️ Oil (WTI)</div>
+        <input type="range" class="warroom-range warroom-range-oil" id="wr-oil" min="50" max="150" step="1" value="70">
+        <div class="warroom-slider-value" id="wr-oil-val">$70</div>
+        <div id="wr-oil-badge" class="warroom-badge warroom-badge-neutral">—</div>
+      </div>
+      <div class="warroom-slider-row">
+        <div class="warroom-slider-label warroom-slider-label-vix">😱 VIX</div>
+        <input type="range" class="warroom-range warroom-range-vix" id="wr-vix" min="10" max="50" step="0.1" value="20">
+        <div class="warroom-slider-value" id="wr-vix-val">20.0</div>
+        <div id="wr-vix-badge" class="warroom-badge warroom-badge-neutral">—</div>
+      </div>
+      <div class="warroom-slider-row">
+        <div class="warroom-slider-label warroom-slider-label-yield">📊 10Y Yield</div>
+        <input type="range" class="warroom-range warroom-range-yield" id="wr-yield" min="2.0" max="6.0" step="0.01" value="4.0">
+        <div class="warroom-slider-value" id="wr-yield-val">4.00%</div>
+        <div id="wr-yield-badge" class="warroom-badge warroom-badge-neutral">—</div>
+      </div>
+      <div class="warroom-slider-row">
+        <div class="warroom-slider-label warroom-slider-label-dxy">💵 DXY (Dollar)</div>
+        <input type="range" class="warroom-range warroom-range-dxy" id="wr-dxy" min="90" max="115" step="0.1" value="100">
+        <div class="warroom-slider-value" id="wr-dxy-val">100.0</div>
+        <div id="wr-dxy-badge" class="warroom-badge warroom-badge-neutral">—</div>
+      </div>
+    </div>
+    <div class="warroom-summary" id="warroom-summary">
+      <div><span class="warroom-summary-label">Simulated Regime: </span><span class="warroom-summary-value" id="wr-regime">—</span></div>
+      <div style="color:var(--text-muted);">|</div>
+      <div><span class="warroom-summary-label">Simulated Action: </span><span class="warroom-summary-value" id="wr-action">—</span></div>
+      <div style="color:var(--text-muted);">|</div>
+      <div><span class="warroom-summary-label">Fear/Greed: </span><span class="warroom-summary-value" id="wr-fg-score">—</span></div>
+    </div>
+  </div>
+
+  <!-- Portfolio Impact -->
+  <div class="impact-section" id="impact-section">
+    <div class="impact-title">🎯 If Current Conditions Persist...</div>
+    <div class="impact-subtitle">Directional estimate based on macro regime — not a prediction</div>
+    <div class="impact-body" id="impact-body"></div>
+  </div>
+
+  <!-- Portfolio P&L Summary Card -->
+  <div class="pnl-card" id="pnl-card">
+    <div class="pnl-header">
+      <div class="pnl-title">💰 Today's P&L</div>
+      <div class="pnl-total-value" id="pnl-total-value">Portfolio: —</div>
+    </div>
+    <div class="pnl-main">
+      <div class="pnl-dollar" id="pnl-dollar">$0</div>
+      <div class="pnl-percent" id="pnl-percent">0.00%</div>
+    </div>
+    <div class="pnl-details" id="pnl-details"></div>
+    <div class="pnl-beta" id="pnl-beta"></div>
+    <div id="sharpe-container" style="margin-top:8px;"></div>
+  </div>
+
+  
+  <!-- Economic Calendar (Batch 2) -->
+  <div class="econ-calendar" id="econ-calendar">
+    <div class="econ-calendar-title">📅 Economic Calendar</div>
+    <div class="econ-events" id="econ-events"></div>
+  </div>
+
+  <!-- Drawdown Meter (Batch 2) -->
+  <div class="drawdown-section" id="drawdown-section">
+    <div class="drawdown-title">📉 Portfolio Drawdown</div>
+    <div class="drawdown-bar-bg"><div class="drawdown-bar-fill" id="drawdown-bar-fill" style="width:0%"></div></div>
+    <div class="drawdown-text" id="drawdown-text">—</div>
+    <div class="drawdown-peak" id="drawdown-peak"></div>
+  </div>
+
+  <!-- Portfolio -->
+  <div class="portfolio-bar" id="portfolio-bar" style="display:none;">
+    <div class="portfolio-title">📊 Holdings</div>
+    <div class="donut-wrap" id="donut-wrap"></div>
+    
+    <!-- Sector Allocation Bar (Batch 2) -->
+    <div class="sector-alloc-bar" id="sector-alloc-bar">
+      <div class="sector-alloc-title">📊 Sector Allocation</div>
+      <div class="sector-bar-track" id="sector-bar-track"></div>
+      <div class="sector-bar-labels" id="sector-bar-labels"></div>
+    </div>
+
+    <!-- Correlation Matrix (Batch 2) -->
+    <div class="corr-matrix-section" id="corr-matrix-section">
+      <div class="corr-matrix-title">🔗 Holdings Correlation Matrix</div>
+      <div id="corr-matrix-content"></div>
+    </div>
+
+    <!-- Risk Score Ring (Batch 2) -->
+    <div class="risk-ring-wrap" id="risk-ring-wrap">
+      <div class="risk-ring-title">⚡ Portfolio Risk Score</div>
+      <div id="risk-ring-content"></div>
+    </div>
+
+    <!-- Total Return Since Inception (ITER 4) -->
+    <div class="total-return-metric" id="total-return-metric" style="display:none;">
+      <span class="total-return-label">Total Return Since Mar 1, 2026:</span>
+      <span class="total-return-value" id="total-return-value">—</span>
+    </div>
+
+    <!-- Daily P&L Bar Chart (ITER 4) -->
+    <div class="pnl-chart-section" id="pnl-chart-section" style="display:none;">
+      <div class="pnl-chart-title">📊 Daily P&L — Last 7 Days</div>
+      <div class="pnl-bars" id="pnl-bars"></div>
+    </div>
+
+    <div class="holdings-search-wrap" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <input type="text" class="holdings-search" id="holdings-search" placeholder="🔍 Filter holdings by ticker..." oninput="filterHoldings(this.value)" style="flex:1;">
+      <button class="compare-btn" id="compare-btn" onclick="toggleCompareMode()">⚖️ Compare</button>
+      <button class="compare-btn" id="compare-reset-btn" onclick="resetCompareMode()" style="display:none;">✕ Reset</button>
+    </div>
+    <div class="compare-chart-wrap" id="compare-chart-wrap"><canvas id="compareCanvas"></canvas></div>
+    <div class="holdings-grid" id="holdings-grid"></div>
+  </div>
+
+  <!-- Upcoming Events -->
+  <div class="events-section" id="events-section">
+    <div class="events-title">📅 Upcoming Events</div>
+    <div class="events-grid" id="events-grid"></div>
+  </div>
+
+  <!-- Add Holding Modal -->
+  <div class="modal-overlay" id="add-modal">
+    <div class="modal-box">
+      <h3>+ Add Holding</h3>
+      <label>Ticker</label>
+      <input type="text" id="modal-ticker" placeholder="e.g. GLD" maxlength="10" style="text-transform:uppercase;">
+      <label>Exchange</label>
+      <select id="modal-exchange">
+        <option value="NYSE">NYSE</option>
+        <option value="NASDAQ">NASDAQ</option>
+        <option value="NYSEARCA">NYSEARCA</option>
+        <option value="TSE">TSX (Toronto)</option>
+        <option value="INDEXSP">S&P Index</option>
+        <option value="INDEXCBOE">CBOE (VIX)</option>
+      </select>
+      <label>Shares</label>
+      <input type="number" id="modal-shares" placeholder="100" min="1">
+      <div style="margin-top:12px;font-size:10px;color:var(--text-muted);font-style:italic;">Price data refreshes when the server updates (~5 min). New holdings show "—" until then.</div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeAddModal()">Cancel</button>
+        <button class="btn-add" onclick="addHolding()">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- News Feed -->
+  <div class="news-section" id="news-section">
+    <div class="news-title" onclick="document.getElementById('news-list').classList.toggle('collapsed')">📰 NEWS <span class="section-collapse-btn">▼</span></div>
+    <div class="news-list" id="news-list"></div>
+  </div>
+
+  <!-- Research Notes -->
+  <div class="notes-section" id="notes-section">
+    <div class="notes-title">📝 NOTES</div>
+    <textarea class="notes-textarea" id="notes-textarea" placeholder="Type your observations here..."></textarea>
+    <div class="notes-timestamp" id="notes-timestamp"></div>
+  </div>
+
+  <!-- Welcome Tour (Batch 3) -->
+  <div id="tour-overlay" class="tour-overlay" style="display:none;"></div>
+  <div id="tour-highlight" class="tour-highlight" style="display:none;"></div>
+  <div id="tour-tooltip" class="tour-tooltip" style="display:none;"></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Auto-refreshes every 5 minutes · Data via Google Finance <span class="version-badge" id="version-badge" onclick="toggleChangelog()">v6.0</span>
+  </div>
+</div>
+
+<!-- Settings Overlay -->
+<div class="settings-overlay" id="settings-overlay">
+  <div class="settings-box">
+    <h3>⚙ Settings</h3>
+    <div class="settings-row"><span>Auto-refresh interval</span>
+      <select id="settings-refresh" onchange="updateRefreshInterval(this.value)">
+        <option value="60000">1 min</option>
+        <option value="300000" selected>5 min</option>
+        <option value="900000">15 min</option>
+      </select>
+    </div>
+    <div class="settings-row"><span>Reset all localStorage</span><button class="danger" onclick="if(confirm('Clear all saved data?')){localStorage.clear();location.reload();}">Reset</button></div>
+    <div class="settings-row"><span>Show/Hide Sections</span></div>
+    <div id="settings-section-toggles" style="font-size:12px;"></div>
+    <button class="settings-close" onclick="toggleSettings()">Close</button>
+  </div>
+</div>
+
+<!-- Changelog Overlay -->
+<div class="changelog-overlay" id="changelog-overlay">
+  <div class="changelog-box">
+    <h3>📋 Changelog — v6.0</h3>
+    <ul>
+      <li>🌓 Dark/Light mode toggle</li>
+      <li>📂 Collapsible sections with state persistence</li>
+      <li>🔍 Holdings search/filter by ticker</li>
+      <li>⛶ Fullscreen mode</li>
+      <li>📜 Smart alert history log (last 20)</li>
+      <li>📈 Condition trend arrows (↗ ↘ →)</li>
+      <li>📰 Embedded news feed from data.json</li>
+      <li>📝 Research notes with auto-save</li>
+      <li>⚙ Settings panel (refresh interval, toggles, reset)</li>
+      <li>🏷️ Version badge with changelog</li>
+    </ul>
+    <button class="changelog-close" onclick="toggleChangelog()">Close</button>
+  </div>
+</div>
+
+<!-- Keyboard Shortcuts Overlay -->
+<div class="shortcuts-overlay" id="shortcuts-overlay">
+  <div class="shortcuts-box">
+    <h3>⌨️ Keyboard Shortcuts</h3>
+    <div class="shortcut-row"><span class="shortcut-key">D</span><span class="shortcut-desc">Toggle dark / light mode</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">R</span><span class="shortcut-desc">Reset War Room sliders to live values</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">1–5</span><span class="shortcut-desc">Scroll to condition card (1=Discount, 2=Liquidity, …)</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">W</span><span class="shortcut-desc">Scroll to War Room</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">H</span><span class="shortcut-desc">Scroll to Holdings</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">P</span><span class="shortcut-desc">Scroll to P&L card</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">E</span><span class="shortcut-desc">Scroll to Upcoming Events</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">?</span><span class="shortcut-desc">Show / hide this shortcuts panel</span></div>
+    <button class="shortcuts-close" onclick="toggleShortcuts()">Close (or press ?)</button>
+  </div>
+</div>
+
+<!-- News Ticker -->
+<div class="ticker-bar" id="ticker-bar">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<script src="app.js"></script>
+<div id="info-sheet">
+  <button class="info-close" onclick="closeInfoSheet()">&times;</button>
+  <h4 id="info-sheet-title"></h4>
+  <div id="info-sheet-body"></div>
+</div>
+
+<!-- Map Region Info Sheet (ITER 2) -->
+<div class="map-region-info-sheet" id="map-region-info-sheet">
+  <button class="region-close" onclick="closeRegionSheet()">&times;</button>
+  <h4 id="region-sheet-title"></h4>
+  <div id="region-sheet-body"></div>
+</div>
+
+<!-- Pull to Refresh Indicator (ITER 5) -->
+<div class="ptr-indicator" id="ptr-indicator">↻ Pull to refresh</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "holdings": [
+    {
+      "ticker": "GDX",
+      "exchange": "NYSEARCA",
+      "shares": 2500,
+      "name": "VanEck Gold Miners"
+    },
+    {
+      "ticker": "KGC",
+      "exchange": "NYSE",
+      "shares": 2600,
+      "name": "Kinross Gold"
+    },
+    {
+      "ticker": "AG",
+      "exchange": "NYSE",
+      "shares": 1300,
+      "name": "First Majestic Silver"
+    },
+    {
+      "ticker": "CEG",
+      "exchange": "NASDAQ",
+      "shares": 110,
+      "name": "Constellation Energy"
+    },
+    {
+      "ticker": "GILD",
+      "exchange": "NASDAQ",
+      "shares": 118,
+      "name": "Gilead Sciences"
+    },
+    {
+      "ticker": "REGN",
+      "exchange": "NASDAQ",
+      "shares": 20,
+      "name": "Regeneron"
+    },
+    {
+      "ticker": "VRTX",
+      "exchange": "NASDAQ",
+      "shares": 20,
+      "name": "Vertex Pharma"
+    },
+    {
+      "ticker": "FCX",
+      "exchange": "NYSE",
+      "shares": 160,
+      "name": "Freeport-McMoRan"
+    }
+  ]
+}

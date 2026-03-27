@@ -1,0 +1,957 @@
+{
+  "updated": "2026-03-27T12:05:01.296276-07:00",
+  "updated_display": "Fri Mar 27, 2026 12:05 PM PST",
+  "conditions": {
+    "discount_rate": {
+      "status": "BEARISH",
+      "classification": "Real yield ~2.0% \u2014 restrictive",
+      "metrics": {
+        "10Y Yield": {
+          "value": "4.44%",
+          "raw": 4.436
+        },
+        "Short Rate (IRX)": {
+          "value": "3.61%",
+          "raw": 3.61
+        },
+        "5Y Yield": {
+          "value": "4.07%",
+          "raw": 4.068
+        },
+        "Yield Curve": {
+          "value": "+83bp (NORMAL)",
+          "raw": 82.60000000000001
+        },
+        "Real Yield": {
+          "value": "~2.0%",
+          "raw": 2.036
+        },
+        "TIP": {
+          "value": "$109.62",
+          "raw": 109.62,
+          "change": -0.13
+        }
+      }
+    },
+    "liquidity": {
+      "status": "TIGHTENING",
+      "classification": "VIX at 31.0, credit spreads widening",
+      "metrics": {
+        "VIX": {
+          "value": "31.0",
+          "raw": 31.0,
+          "change": 12.97
+        },
+        "HYG": {
+          "value": "$78.67",
+          "raw": 78.67,
+          "change": -0.32
+        },
+        "LQD": {
+          "value": "$107.53",
+          "raw": 107.525,
+          "change": -0.33
+        },
+        "TLT": {
+          "value": "$85.56",
+          "raw": 85.565,
+          "change": -0.63
+        },
+        "HYG/LQD Ratio": {
+          "value": "0.732",
+          "raw": 0.7316438037665659
+        },
+        "Credit Spreads": {
+          "value": "widening",
+          "raw": null
+        }
+      }
+    },
+    "inflation": {
+      "status": "STICKY",
+      "classification": "Oil elevated ($99/bbl), breakevens contained",
+      "metrics": {
+        "WTI Crude": {
+          "value": "$99.35",
+          "raw": 99.35,
+          "change": 5.15
+        },
+        "Brent Crude": {
+          "value": "$105.19",
+          "raw": 105.19,
+          "change": 3.24
+        },
+        "TIP": {
+          "value": "$109.62",
+          "raw": 109.62,
+          "change": -0.13
+        },
+        "Agriculture (DBA)": {
+          "value": "$27.17",
+          "raw": 27.17,
+          "change": 0.22
+        }
+      }
+    },
+    "growth": {
+      "status": "EXPANSION",
+      "classification": "Broad strength \u2014 IWM/XLI healthy",
+      "metrics": {
+        "S&P 500": {
+          "value": "6,374",
+          "raw": 6373.52,
+          "change": -1.6
+        },
+        "Nasdaq": {
+          "value": "20,957",
+          "raw": 20957.354,
+          "change": -2.11
+        },
+        "Russell 2000 (IWM)": {
+          "value": "$243.29",
+          "raw": 243.295,
+          "change": -1.68
+        },
+        "Industrials (XLI)": {
+          "value": "$159.40",
+          "raw": 159.4,
+          "change": -1.16
+        }
+      }
+    },
+    "trust": {
+      "status": "BREAKDOWN",
+      "classification": "Gold/Dollar signal: gold surging",
+      "metrics": {
+        "Gold (spot)": {
+          "value": "$4,545",
+          "raw": 4544.9,
+          "change": 3.08
+        },
+        "Silver (spot)": {
+          "value": "$70.32",
+          "raw": 70.32,
+          "change": 3.51
+        },
+        "Miners (GDX)": {
+          "value": "$85.11",
+          "raw": 85.11,
+          "change": 3.3
+        },
+        "DXY": {
+          "value": "100.15",
+          "raw": 100.149,
+          "change": 0.25
+        },
+        "USD/JPY": {
+          "value": "160.27",
+          "raw": 160.271,
+          "change": 0.4
+        },
+        "EUR/USD": {
+          "value": "1.1514",
+          "raw": 1.1514,
+          "change": -0.22
+        },
+        "Correlation": {
+          "value": "gold surging",
+          "raw": null
+        }
+      }
+    }
+  },
+  "regime": "Mild headwinds for gold \u2014 watch for deterioration",
+  "action": "HOLD",
+  "score": -1,
+  "failed_tickers": [],
+  "portfolio": {
+    "GDX": {
+      "shares": 2500,
+      "price": 85.11,
+      "change": 3.3,
+      "name": "VanEck Gold Miners"
+    },
+    "KGC": {
+      "shares": 2600,
+      "price": 28.53,
+      "change": 2.29,
+      "name": "Kinross Gold"
+    },
+    "AG": {
+      "shares": 1300,
+      "price": 20.5,
+      "change": 6.11,
+      "name": "First Majestic Silver"
+    },
+    "CEG": {
+      "shares": 110,
+      "price": 301.87,
+      "change": 2.26,
+      "name": "Constellation Energy"
+    },
+    "GILD": {
+      "shares": 118,
+      "price": 135.35,
+      "change": -1.12,
+      "name": "Gilead Sciences"
+    },
+    "REGN": {
+      "shares": 20,
+      "price": 742.135,
+      "change": -1.93,
+      "name": "Regeneron"
+    },
+    "VRTX": {
+      "shares": 20,
+      "price": 438.19,
+      "change": -3.43,
+      "name": "Vertex Pharma"
+    },
+    "FCX": {
+      "shares": 160,
+      "price": 55.865,
+      "change": 0.06,
+      "name": "Freeport-McMoRan"
+    }
+  },
+  "previous_statuses": {
+    "discount_rate": "BEARISH",
+    "liquidity": "TIGHTENING",
+    "inflation": "STICKY",
+    "growth": "EXPANSION",
+    "trust": "BREAKDOWN"
+  },
+  "alerts": [
+    {
+      "condition": "DISCOUNT RATE",
+      "from": "BEARISH",
+      "to": "BULLISH",
+      "time": "2026-03-26T13:20:01.965639-07:00"
+    },
+    {
+      "condition": "DISCOUNT RATE",
+      "from": "BULLISH",
+      "to": "BEARISH",
+      "time": "2026-03-26T13:25:01.950055-07:00"
+    },
+    {
+      "condition": "LIQUIDITY",
+      "from": "TIGHTENING",
+      "to": "FLUSH",
+      "time": "2026-03-26T13:45:01.133133-07:00"
+    },
+    {
+      "condition": "LIQUIDITY",
+      "from": "FLUSH",
+      "to": "TIGHTENING",
+      "time": "2026-03-26T13:50:01.715385-07:00"
+    },
+    {
+      "condition": "DISCOUNT RATE",
+      "from": "BEARISH",
+      "to": "BULLISH",
+      "time": "2026-03-26T15:33:17.296243-07:00"
+    },
+    {
+      "condition": "DISCOUNT RATE",
+      "from": "BULLISH",
+      "to": "BEARISH",
+      "time": "2026-03-26T15:33:50.878488-07:00"
+    },
+    {
+      "condition": "TRUST",
+      "from": "INTACT",
+      "to": "BREAKDOWN",
+      "time": "2026-03-27T07:15:01.313120-07:00"
+    },
+    {
+      "condition": "TRUST",
+      "from": "BREAKDOWN",
+      "to": "INTACT",
+      "time": "2026-03-27T08:50:01.058365-07:00"
+    },
+    {
+      "condition": "TRUST",
+      "from": "INTACT",
+      "to": "BREAKDOWN",
+      "time": "2026-03-27T08:55:01.069970-07:00"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-03-25",
+      "score": 1,
+      "gold": 4162.9
+    },
+    {
+      "date": "2026-03-26",
+      "score": -1,
+      "gold": 4162.9
+    },
+    {
+      "date": "2026-03-27",
+      "score": -3,
+      "gold": 4469.0
+    }
+  ],
+  "ticker_headlines": [
+    {
+      "text": "Iran War Has The Bank Of Japan As Confused As The Federal Reserve - forbes.com",
+      "condition": "DISCOUNT RATE"
+    },
+    {
+      "text": "Federal Reserve\u2019s Barkin says economic fog has deepened amid AI and Iran conflict - Investing.com Canada",
+      "condition": "DISCOUNT RATE"
+    },
+    {
+      "text": "Federal Reserve could cut balance sheet by $2tn without market turmoil, says Miran - Financial Times",
+      "condition": "DISCOUNT RATE"
+    },
+    {
+      "text": "In the News: Tyler Schipper on Global Forces Driving Inflation - Newsroom | University of St. Thomas",
+      "condition": "INFLATION"
+    },
+    {
+      "text": "The market is starting to think the Federal Reserve's next move is raising interest rates - Yahoo Finance",
+      "condition": "DISCOUNT RATE"
+    }
+  ],
+  "metric_history": {
+    "gold": [
+      {
+        "date": "2026-03-19",
+        "value": 4161.2
+      },
+      {
+        "date": "2026-03-20",
+        "value": 4176.19
+      },
+      {
+        "date": "2026-03-21",
+        "value": 4210.49
+      },
+      {
+        "date": "2026-03-22",
+        "value": 4114.17
+      },
+      {
+        "date": "2026-03-23",
+        "value": 4149.49
+      },
+      {
+        "date": "2026-03-24",
+        "value": 4087.99
+      },
+      {
+        "date": "2026-03-25",
+        "value": 4162.9
+      },
+      {
+        "date": "2026-03-26",
+        "value": 4162.9
+      },
+      {
+        "date": "2026-03-27",
+        "value": 4469.0
+      }
+    ],
+    "vix": [
+      {
+        "date": "2026-03-19",
+        "value": 25.41
+      },
+      {
+        "date": "2026-03-20",
+        "value": 25.11
+      },
+      {
+        "date": "2026-03-21",
+        "value": 25.07
+      },
+      {
+        "date": "2026-03-22",
+        "value": 25.39
+      },
+      {
+        "date": "2026-03-23",
+        "value": 25.19
+      },
+      {
+        "date": "2026-03-24",
+        "value": 25.39
+      },
+      {
+        "date": "2026-03-25",
+        "value": 25.33
+      },
+      {
+        "date": "2026-03-26",
+        "value": 27.53
+      },
+      {
+        "date": "2026-03-27",
+        "value": 29.67
+      }
+    ],
+    "oil": [
+      {
+        "date": "2026-03-19",
+        "value": 115.1
+      },
+      {
+        "date": "2026-03-20",
+        "value": 112.58
+      },
+      {
+        "date": "2026-03-21",
+        "value": 111.59
+      },
+      {
+        "date": "2026-03-22",
+        "value": 111.15
+      },
+      {
+        "date": "2026-03-23",
+        "value": 114.14
+      },
+      {
+        "date": "2026-03-24",
+        "value": 113.52
+      },
+      {
+        "date": "2026-03-25",
+        "value": 113.39
+      },
+      {
+        "date": "2026-03-26",
+        "value": 113.39
+      },
+      {
+        "date": "2026-03-27",
+        "value": 96.87
+      }
+    ],
+    "dxy": [
+      {
+        "date": "2026-03-19",
+        "value": 104.56
+      },
+      {
+        "date": "2026-03-20",
+        "value": 106.6
+      },
+      {
+        "date": "2026-03-21",
+        "value": 106.24
+      },
+      {
+        "date": "2026-03-22",
+        "value": 105.9
+      },
+      {
+        "date": "2026-03-23",
+        "value": 103.97
+      },
+      {
+        "date": "2026-03-24",
+        "value": 105.55
+      },
+      {
+        "date": "2026-03-25",
+        "value": 104.71
+      },
+      {
+        "date": "2026-03-26",
+        "value": 104.71
+      },
+      {
+        "date": "2026-03-27",
+        "value": 100.07
+      }
+    ],
+    "spx": [
+      {
+        "date": "2026-03-19",
+        "value": 6715.66
+      },
+      {
+        "date": "2026-03-20",
+        "value": 6582.11
+      },
+      {
+        "date": "2026-03-21",
+        "value": 6540.43
+      },
+      {
+        "date": "2026-03-22",
+        "value": 6470.32
+      },
+      {
+        "date": "2026-03-23",
+        "value": 6616.28
+      },
+      {
+        "date": "2026-03-24",
+        "value": 6679.01
+      },
+      {
+        "date": "2026-03-25",
+        "value": 6591.9
+      },
+      {
+        "date": "2026-03-26",
+        "value": 6591.9
+      },
+      {
+        "date": "2026-03-27",
+        "value": 6477.16
+      }
+    ],
+    "gdx": [
+      {
+        "date": "2026-03-19",
+        "value": 87.67
+      },
+      {
+        "date": "2026-03-20",
+        "value": 85.04
+      },
+      {
+        "date": "2026-03-21",
+        "value": 86.12
+      },
+      {
+        "date": "2026-03-22",
+        "value": 87.71
+      },
+      {
+        "date": "2026-03-23",
+        "value": 87.25
+      },
+      {
+        "date": "2026-03-24",
+        "value": 84.63
+      },
+      {
+        "date": "2026-03-25",
+        "value": 86.32
+      },
+      {
+        "date": "2026-03-26",
+        "value": 86.32
+      },
+      {
+        "date": "2026-03-27",
+        "value": 82.39
+      }
+    ],
+    "slv": [
+      {
+        "date": "2026-03-19",
+        "value": 64.27
+      },
+      {
+        "date": "2026-03-20",
+        "value": 64.73
+      },
+      {
+        "date": "2026-03-21",
+        "value": 64.66
+      },
+      {
+        "date": "2026-03-22",
+        "value": 64.42
+      },
+      {
+        "date": "2026-03-23",
+        "value": 65.38
+      },
+      {
+        "date": "2026-03-24",
+        "value": 65.35
+      },
+      {
+        "date": "2026-03-25",
+        "value": 65.21
+      },
+      {
+        "date": "2026-03-26",
+        "value": 65.21
+      }
+    ],
+    "tlt": [
+      {
+        "date": "2026-03-19",
+        "value": 86.0
+      },
+      {
+        "date": "2026-03-20",
+        "value": 87.63
+      },
+      {
+        "date": "2026-03-21",
+        "value": 86.41
+      },
+      {
+        "date": "2026-03-22",
+        "value": 85.71
+      },
+      {
+        "date": "2026-03-23",
+        "value": 85.99
+      },
+      {
+        "date": "2026-03-24",
+        "value": 85.37
+      },
+      {
+        "date": "2026-03-25",
+        "value": 86.84
+      },
+      {
+        "date": "2026-03-26",
+        "value": 86.84
+      },
+      {
+        "date": "2026-03-27",
+        "value": 86.11
+      }
+    ],
+    "hyg": [
+      {
+        "date": "2026-03-19",
+        "value": 79.28
+      },
+      {
+        "date": "2026-03-20",
+        "value": 78.57
+      },
+      {
+        "date": "2026-03-21",
+        "value": 80.18
+      },
+      {
+        "date": "2026-03-22",
+        "value": 80.27
+      },
+      {
+        "date": "2026-03-23",
+        "value": 79.76
+      },
+      {
+        "date": "2026-03-24",
+        "value": 80.88
+      },
+      {
+        "date": "2026-03-25",
+        "value": 79.42
+      },
+      {
+        "date": "2026-03-26",
+        "value": 79.42
+      },
+      {
+        "date": "2026-03-27",
+        "value": 78.92
+      }
+    ],
+    "tip": [
+      {
+        "date": "2026-03-19",
+        "value": 112.13
+      },
+      {
+        "date": "2026-03-20",
+        "value": 110.38
+      },
+      {
+        "date": "2026-03-21",
+        "value": 108.68
+      },
+      {
+        "date": "2026-03-22",
+        "value": 108.24
+      },
+      {
+        "date": "2026-03-23",
+        "value": 111.02
+      },
+      {
+        "date": "2026-03-24",
+        "value": 108.03
+      },
+      {
+        "date": "2026-03-25",
+        "value": 110.16
+      },
+      {
+        "date": "2026-03-26",
+        "value": 110.16
+      },
+      {
+        "date": "2026-03-27",
+        "value": 109.76
+      }
+    ],
+    "ten_y": [
+      {
+        "date": "2026-03-19",
+        "value": 4.27
+      },
+      {
+        "date": "2026-03-20",
+        "value": 4.39
+      },
+      {
+        "date": "2026-03-21",
+        "value": 4.25
+      },
+      {
+        "date": "2026-03-22",
+        "value": 4.26
+      },
+      {
+        "date": "2026-03-23",
+        "value": 4.31
+      },
+      {
+        "date": "2026-03-24",
+        "value": 4.38
+      },
+      {
+        "date": "2026-03-25",
+        "value": 4.33
+      },
+      {
+        "date": "2026-03-26",
+        "value": 4.38
+      },
+      {
+        "date": "2026-03-27",
+        "value": 4.46
+      }
+    ],
+    "real_yield": [
+      {
+        "date": "2026-03-19",
+        "value": 1.92
+      },
+      {
+        "date": "2026-03-20",
+        "value": 1.89
+      },
+      {
+        "date": "2026-03-21",
+        "value": 1.95
+      },
+      {
+        "date": "2026-03-22",
+        "value": 1.96
+      },
+      {
+        "date": "2026-03-23",
+        "value": 1.94
+      },
+      {
+        "date": "2026-03-24",
+        "value": 1.96
+      },
+      {
+        "date": "2026-03-25",
+        "value": 1.93
+      },
+      {
+        "date": "2026-03-26",
+        "value": 1.98
+      },
+      {
+        "date": "2026-03-27",
+        "value": 2.06
+      }
+    ],
+    "iwm": [
+      {
+        "date": "2026-03-19",
+        "value": 251.08
+      },
+      {
+        "date": "2026-03-20",
+        "value": 251.05
+      },
+      {
+        "date": "2026-03-21",
+        "value": 252.43
+      },
+      {
+        "date": "2026-03-22",
+        "value": 256.4
+      },
+      {
+        "date": "2026-03-23",
+        "value": 255.01
+      },
+      {
+        "date": "2026-03-24",
+        "value": 251.19
+      },
+      {
+        "date": "2026-03-25",
+        "value": 251.82
+      },
+      {
+        "date": "2026-03-26",
+        "value": 251.82
+      },
+      {
+        "date": "2026-03-27",
+        "value": 247.44
+      }
+    ],
+    "xli": [
+      {
+        "date": "2026-03-19",
+        "value": 164.31
+      },
+      {
+        "date": "2026-03-20",
+        "value": 164.33
+      },
+      {
+        "date": "2026-03-21",
+        "value": 166.33
+      },
+      {
+        "date": "2026-03-22",
+        "value": 165.3
+      },
+      {
+        "date": "2026-03-23",
+        "value": 167.45
+      },
+      {
+        "date": "2026-03-24",
+        "value": 161.98
+      },
+      {
+        "date": "2026-03-25",
+        "value": 165.1
+      },
+      {
+        "date": "2026-03-26",
+        "value": 165.1
+      },
+      {
+        "date": "2026-03-27",
+        "value": 161.27
+      }
+    ],
+    "silver": [
+      {
+        "date": "2026-03-20",
+        "value": 68.24
+      },
+      {
+        "date": "2026-03-21",
+        "value": 67.49
+      },
+      {
+        "date": "2026-03-22",
+        "value": 69.59
+      },
+      {
+        "date": "2026-03-23",
+        "value": 67.86
+      },
+      {
+        "date": "2026-03-24",
+        "value": 67.91
+      },
+      {
+        "date": "2026-03-25",
+        "value": 68.19
+      },
+      {
+        "date": "2026-03-26",
+        "value": 68.66
+      },
+      {
+        "date": "2026-03-27",
+        "value": 67.99
+      }
+    ],
+    "nasdaq": [
+      {
+        "date": "2026-03-20",
+        "value": 21354.71
+      },
+      {
+        "date": "2026-03-21",
+        "value": 21668.5
+      },
+      {
+        "date": "2026-03-22",
+        "value": 21639.65
+      },
+      {
+        "date": "2026-03-23",
+        "value": 21482.85
+      },
+      {
+        "date": "2026-03-24",
+        "value": 21169.25
+      },
+      {
+        "date": "2026-03-25",
+        "value": 21761.92
+      },
+      {
+        "date": "2026-03-26",
+        "value": 21408.08
+      },
+      {
+        "date": "2026-03-27",
+        "value": 21408.08
+      }
+    ],
+    "brent": [
+      {
+        "date": "2026-03-20",
+        "value": 100.44
+      },
+      {
+        "date": "2026-03-21",
+        "value": 103.03
+      },
+      {
+        "date": "2026-03-22",
+        "value": 102.44
+      },
+      {
+        "date": "2026-03-23",
+        "value": 101.26
+      },
+      {
+        "date": "2026-03-24",
+        "value": 99.68
+      },
+      {
+        "date": "2026-03-25",
+        "value": 99.22
+      },
+      {
+        "date": "2026-03-26",
+        "value": 101.15
+      },
+      {
+        "date": "2026-03-27",
+        "value": 104.08
+      }
+    ]
+  },
+  "ai_summary": "Gold is surging on trust breakdown while other signals are mixed \u2014 the trust signal is the strongest driver right now. Hold positions.",
+  "market_status": {
+    "status": "open",
+    "label": "\ud83d\udfe2 US MARKETS OPEN \u2014 closes in 0h 55m",
+    "emoji": "\ud83d\udfe2"
+  }
+}
