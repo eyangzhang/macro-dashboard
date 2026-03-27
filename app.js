@@ -1629,9 +1629,19 @@ function warRoomUpdate() {
 /* ── Main Fetch ── */
 async function fetchData() {
   try {
-    let resp; try { resp = await fetch(DATA_URL + `?t=${Date.now()}`);
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const data = await resp.json();
+    let data;
+    try {
+      const resp = await fetch(DATA_URL + `?t=${Date.now()}`);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      data = await resp.json();
+    } catch(fetchErr) {
+      console.log('Fetch failed, using embedded data:', fetchErr.message);
+      if (typeof EMBEDDED_DATA !== 'undefined') {
+        data = EMBEDDED_DATA;
+      } else {
+        throw fetchErr;
+      }
+    }
     _lastData = data;
 
     document.getElementById('loading').style.display = 'none';

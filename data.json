@@ -1,30 +1,30 @@
 {
-  "updated": "2026-03-27T12:05:01.296276-07:00",
-  "updated_display": "Fri Mar 27, 2026 12:05 PM PST",
+  "updated": "2026-03-27T12:10:01.341594-07:00",
+  "updated_display": "Fri Mar 27, 2026 12:10 PM PST",
   "conditions": {
     "discount_rate": {
       "status": "BEARISH",
       "classification": "Real yield ~2.0% \u2014 restrictive",
       "metrics": {
         "10Y Yield": {
-          "value": "4.44%",
-          "raw": 4.436
+          "value": "4.43%",
+          "raw": 4.434
         },
         "Short Rate (IRX)": {
           "value": "3.61%",
-          "raw": 3.61
+          "raw": 3.6069999
         },
         "5Y Yield": {
-          "value": "4.07%",
-          "raw": 4.068
+          "value": "4.06%",
+          "raw": 4.063
         },
         "Yield Curve": {
           "value": "+83bp (NORMAL)",
-          "raw": 82.60000000000001
+          "raw": 82.70001000000002
         },
         "Real Yield": {
           "value": "~2.0%",
-          "raw": 2.036
+          "raw": 2.0340000000000003
         },
         "TIP": {
           "value": "$109.62",
@@ -35,31 +35,31 @@
     },
     "liquidity": {
       "status": "TIGHTENING",
-      "classification": "VIX at 31.0, credit spreads widening",
+      "classification": "VIX at 31.2, credit spreads widening",
       "metrics": {
         "VIX": {
-          "value": "31.0",
-          "raw": 31.0,
-          "change": 12.97
+          "value": "31.2",
+          "raw": 31.18,
+          "change": 13.63
         },
         "HYG": {
-          "value": "$78.67",
-          "raw": 78.67,
-          "change": -0.32
+          "value": "$78.64",
+          "raw": 78.635,
+          "change": -0.36
         },
         "LQD": {
           "value": "$107.53",
-          "raw": 107.525,
-          "change": -0.33
+          "raw": 107.53,
+          "change": -0.32
         },
         "TLT": {
-          "value": "$85.56",
-          "raw": 85.565,
+          "value": "$85.57",
+          "raw": 85.569,
           "change": -0.63
         },
         "HYG/LQD Ratio": {
-          "value": "0.732",
-          "raw": 0.7316438037665659
+          "value": "0.731",
+          "raw": 0.7312842927555101
         },
         "Credit Spreads": {
           "value": "widening",
@@ -72,14 +72,14 @@
       "classification": "Oil elevated ($99/bbl), breakevens contained",
       "metrics": {
         "WTI Crude": {
-          "value": "$99.35",
-          "raw": 99.35,
-          "change": 5.15
+          "value": "$99.11",
+          "raw": 99.11,
+          "change": 4.9
         },
         "Brent Crude": {
-          "value": "$105.19",
-          "raw": 105.19,
-          "change": 3.24
+          "value": "$104.95",
+          "raw": 104.95,
+          "change": 3.0
         },
         "TIP": {
           "value": "$109.62",
@@ -87,9 +87,9 @@
           "change": -0.13
         },
         "Agriculture (DBA)": {
-          "value": "$27.17",
-          "raw": 27.17,
-          "change": 0.22
+          "value": "$27.16",
+          "raw": 27.165,
+          "change": 0.2
         }
       }
     },
@@ -98,24 +98,24 @@
       "classification": "Broad strength \u2014 IWM/XLI healthy",
       "metrics": {
         "S&P 500": {
-          "value": "6,374",
-          "raw": 6373.52,
-          "change": -1.6
+          "value": "6,371",
+          "raw": 6370.6,
+          "change": -1.65
         },
         "Nasdaq": {
-          "value": "20,957",
-          "raw": 20957.354,
-          "change": -2.11
+          "value": "20,948",
+          "raw": 20947.691,
+          "change": -2.15
         },
         "Russell 2000 (IWM)": {
-          "value": "$243.29",
-          "raw": 243.295,
-          "change": -1.68
+          "value": "$243.18",
+          "raw": 243.18,
+          "change": -1.72
         },
         "Industrials (XLI)": {
-          "value": "$159.40",
-          "raw": 159.4,
-          "change": -1.16
+          "value": "$159.42",
+          "raw": 159.42,
+          "change": -1.15
         }
       }
     },
@@ -124,28 +124,28 @@
       "classification": "Gold/Dollar signal: gold surging",
       "metrics": {
         "Gold (spot)": {
-          "value": "$4,545",
-          "raw": 4544.9,
-          "change": 3.08
+          "value": "$4,548",
+          "raw": 4548.1,
+          "change": 3.15
         },
         "Silver (spot)": {
-          "value": "$70.32",
-          "raw": 70.32,
-          "change": 3.51
+          "value": "$70.36",
+          "raw": 70.365,
+          "change": 3.58
         },
         "Miners (GDX)": {
-          "value": "$85.11",
-          "raw": 85.11,
-          "change": 3.3
+          "value": "$85.02",
+          "raw": 85.02,
+          "change": 3.19
         },
         "DXY": {
           "value": "100.15",
-          "raw": 100.149,
+          "raw": 100.152,
           "change": 0.25
         },
         "USD/JPY": {
-          "value": "160.27",
-          "raw": 160.271,
+          "value": "160.28",
+          "raw": 160.276,
           "change": 0.4
         },
         "EUR/USD": {
@@ -167,50 +167,50 @@
   "portfolio": {
     "GDX": {
       "shares": 2500,
-      "price": 85.11,
-      "change": 3.3,
+      "price": 85.02,
+      "change": 3.19,
       "name": "VanEck Gold Miners"
     },
     "KGC": {
       "shares": 2600,
-      "price": 28.53,
-      "change": 2.29,
+      "price": 28.505,
+      "change": 2.21,
       "name": "Kinross Gold"
     },
     "AG": {
       "shares": 1300,
-      "price": 20.5,
-      "change": 6.11,
+      "price": 20.455,
+      "change": 5.87,
       "name": "First Majestic Silver"
     },
     "CEG": {
       "shares": 110,
-      "price": 301.87,
-      "change": 2.26,
+      "price": 301.689,
+      "change": 2.2,
       "name": "Constellation Energy"
     },
     "GILD": {
       "shares": 118,
-      "price": 135.35,
-      "change": -1.12,
+      "price": 135.3,
+      "change": -1.15,
       "name": "Gilead Sciences"
     },
     "REGN": {
       "shares": 20,
-      "price": 742.135,
-      "change": -1.93,
+      "price": 740.47,
+      "change": -2.15,
       "name": "Regeneron"
     },
     "VRTX": {
       "shares": 20,
-      "price": 438.19,
-      "change": -3.43,
+      "price": 437.18,
+      "change": -3.65,
       "name": "Vertex Pharma"
     },
     "FCX": {
       "shares": 160,
-      "price": 55.865,
-      "change": 0.06,
+      "price": 55.87,
+      "change": 0.07,
       "name": "Freeport-McMoRan"
     }
   },
@@ -951,7 +951,7 @@
   "ai_summary": "Gold is surging on trust breakdown while other signals are mixed \u2014 the trust signal is the strongest driver right now. Hold positions.",
   "market_status": {
     "status": "open",
-    "label": "\ud83d\udfe2 US MARKETS OPEN \u2014 closes in 0h 55m",
+    "label": "\ud83d\udfe2 US MARKETS OPEN \u2014 closes in 0h 50m",
     "emoji": "\ud83d\udfe2"
   }
 }
